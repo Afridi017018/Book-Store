@@ -1,4 +1,4 @@
-import express, { Request, Response, NextFunction } from 'express'; // Import types for Request, Response, and NextFunction
+import express, { Request, Response, NextFunction } from 'express'; 
 import dotenv from 'dotenv';
 import authorRoutes from './routes/authorRoutes';
 import bookRoutes from './routes/bookRoutes';
@@ -12,11 +12,11 @@ app.use(express.json());
 app.use('/api', authorRoutes);
 app.use('/api', bookRoutes);
 
-app.use((req: Request, res: Response, next: NextFunction) => { // Explicitly type parameters
+app.use((req: Request, res: Response, next: NextFunction) => { 
   res.status(404).json({ error: 'Not Found' });
 });
 
-app.use((err: any, req: Request, res: Response, next: NextFunction) => { // Explicitly type parameters
+app.use((err: any, req: Request, res: Response, next: NextFunction) => { 
   console.error(err.stack);
   res.status(500).json({ error: 'Internal Server Error' });
 });
